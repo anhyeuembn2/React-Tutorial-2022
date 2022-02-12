@@ -9,9 +9,9 @@
 ## Getting started Demo: 
   Add your mongodb_url in api/.env and run:    
   Docker: `docker-compose up`      
-  Without Docker: `cd client -> npm start` & `cd api -> npm run dev`    
-  Client: http://localhost:3000    
-  API: http://localhost:5000/api/products
+  Without Docker:   
+    Client: `cd client -> npm install -> npm start`    
+    API: `cd api -> npm install -> npm run dev`
 
 ## 🔥 Donate
 > + 👉 Buy Me a Coffee . Thank You ! 💗 :
@@ -26,7 +26,7 @@
 I. Requirements
   - HTML, CSS, Javascript (DOM, ES6...)
 
-II. [10 Main Core Concept You Need to Know About React.] [Link](https://payalpaul2436.medium.com/10-main-core-concept-you-need-to-know-about-react-303e986e1763#:~:text=You'll%20develop%20a%20strong,for%20over%20a%20year%20now.)
+II. 10 Main Core Concept You Need to Know About React. [Link](https://payalpaul2436.medium.com/10-main-core-concept-you-need-to-know-about-react-303e986e1763#:~:text=You'll%20develop%20a%20strong,for%20over%20a%20year%20now.)
 
   1. What is react?        
     - A JavaScript library for building user interfaces.       
