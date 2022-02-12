@@ -6,12 +6,7 @@
 
 ## Youtube: https://youtu.be/UzD6wVgriAc
 
-## Getting started Demo: 
-  Add your mongodb_url in api/.env and run:    
-  Docker: `docker-compose up`      
-  Without Docker:   
-    Client: `cd client -> npm install -> npm start`    
-    API: `cd api -> npm install -> npm run dev`
+## Getting started Demo: `npm install -> npm run dev`
 
 ## 🔥 Donate
 > + 👉 Buy Me a Coffee . Thank You ! 💗 :
