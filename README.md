@@ -6,7 +6,7 @@
 
 ## Youtube: https://youtu.be/UzD6wVgriAc
 
-## Getting started Demo: `npm install -> npm run dev`
+## Getting started Demo: `npm install -> npm start`
 
 ## 🔥 Donate
 > + 👉 Buy Me a Coffee . Thank You ! 💗 :
