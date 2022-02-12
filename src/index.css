@@ -36,9 +36,9 @@
 }
 
 * {
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
-  margin: 0;
   font-family: Barlow, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -49,50 +49,4 @@
 code {
   font-family: Barlow, source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-
-
-/* Header */
-@import url('./css/header.css');
-
-/* Products */
-@import url('./css/products.css');
-
-/* Product Card */
-@import url('./css/product_card.css');
-
-/* Product Info */
-@import url('./css/product_info.css');
-
-/* Pagination */
-@import url('./css/pagination.css');
-
-/* Modal */
-@import url('./css/modal.css');
-
-/* Search Form */
-@import url('./css/search_form.css');
-
-/* Product Form */
-@import url('./css/product_form.css');
-
-/* Filter Form */
-@import url('./css/filter_form.css');
-
-/* Sorting */
-@import url('./css/sorting.css');
-
-/* Loading */
-@import url('./css/loading.css');
-
-.btn-load_more{
-  background: white;
-  border: 2px solid green;
-  padding: 10px 20px;
-  margin: 10px auto;
-  font-weight: 600;
-  text-transform: uppercase;
-  display: block;
-  cursor: pointer;
 }
