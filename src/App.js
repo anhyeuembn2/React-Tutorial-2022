@@ -4,7 +4,9 @@ import Home from './pages/Home'
 const App = () => {
   return (
     <div>
-      <Home />
+      <Home name="Cuong" age={31} >
+        <h1>Hello</h1>
+      </Home>
     </div>
   )
 }
