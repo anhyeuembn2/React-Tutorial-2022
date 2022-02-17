@@ -50,3 +50,9 @@ code {
   font-family: Barlow, source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Products */
+@import url('./css/products.css');
+
+/* Products Card */
+@import url('./css/products_card.css');

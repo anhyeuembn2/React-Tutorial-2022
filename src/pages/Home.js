@@ -1,20 +1,19 @@
-import { useState} from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import Products from '../components/Products'
 
-const Home = ({ name = "Anh", age, children }) => {
-  const [products, setProducts] = useState(1)
+const Home = () => {
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    axios.get('/products').then(res => {
+      setProducts(res.data.products)
+    })
+  }, [])
 
   return(
     <div>
-      <div>Name: {name}</div>
-      <div>Age: {age}</div>
-      <div>Home: {children}</div>
-      <h1>{products}</h1>
-      <button onClick={() => {
-        let products = "A"
-        setProducts(prev => prev + 1)
-        // console.log(products)
-      }
-      }>Click</button>
+      <Products products={products} />
     </div>
   )
 }
