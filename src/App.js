@@ -5,14 +5,13 @@ import ProductDetail from './pages/ProductDetail'
 
 const App = () => {
   return (
-    <div>
+    <>
       <Routes>
         <Route path='/' element={ <Home /> } />
         <Route path='/products' element={ <Home /> } />
         <Route path='/products/:id' element={ <ProductDetail /> } />
       </Routes>
-      
-    </div>
+    </>
   )
 }
 

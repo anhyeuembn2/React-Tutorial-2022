@@ -1,20 +1,22 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import Products from '../components/Products'
+import useQuery from '../hooks/useQuery'
 
 const Home = () => {
   const [products, setProducts] = useState([])
 
+  const { data, loading, error } = useQuery('/products')
+
   useEffect(() => {
-    axios.get('/products').then(res => {
-      setProducts(res.data.products)
-    })
-  }, [])
+    if(data) setProducts(data.products)
+  }, [data])
 
   return(
-    <div>
+    <main>
       <Products products={products} />
-    </div>
+      { loading && <h2>Loading...</h2> }
+      { error && <h2>{error}</h2> }
+    </main>
   )
 }
 
