@@ -59,3 +59,6 @@ code {
 
 /* Product Info */
 @import url('./css/product_info.css');
+
+/* Pagination */
+@import url('./css/pagination.css');
