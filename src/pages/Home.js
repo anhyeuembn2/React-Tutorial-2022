@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 
 import Pagination from '../components/Pagination'
@@ -8,10 +8,14 @@ import useQuery from '../hooks/useQuery'
 const Home = () => {
   const [products, setProducts] = useState([])
   const [limit, setLimit] = useState(5)
-  const [page, setPage] = useState(1)
 
   const { search } = useLocation()
+  const ref = useRef(0)
 
+  const page = useMemo(() => {
+    const page = new URLSearchParams(search).get('page') || 1;
+    return Number(page);
+  }, [search])
 
   const { data, loading, error } = useQuery(
     `/products?limit=${limit}&page=${page}`
@@ -26,14 +30,11 @@ const Home = () => {
     return Math.ceil(data.count / limit)
   }, [data?.count])
 
-  useEffect(() => {
-    const page = new URLSearchParams(search).get('page') || 1;
-    setPage(Number(page))
-  }, [search])
 
 
   return(
     <main>
+      <h2>Renders: {ref.current++}</h2>
       <Products products={products} />
       { loading && <h2>Loading...</h2> }
       { error && <h2>{error}</h2> }

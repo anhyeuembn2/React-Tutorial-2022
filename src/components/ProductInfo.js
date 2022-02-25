@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 const ProductInfo = ({product}) => {
+  const ref = useRef(0)
+
   return (
     <div className='product_info'>
+      <h2>Renders: {ref.current++}</h2>
       <img src={product.image} alt={product.image} />
       <div className='box'>
         <h2>{product.title}</h2>
