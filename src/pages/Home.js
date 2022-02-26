@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom'
 
 import Pagination from '../components/Pagination'
 import Products from '../components/Products'
+import Sorting from '../components/Sorting'
 import useQuery from '../hooks/useQuery'
 
 const Home = () => {
@@ -12,13 +13,17 @@ const Home = () => {
   const { search } = useLocation()
   const ref = useRef(0)
 
-  const page = useMemo(() => {
+  const { page, sort } = useMemo(() => {
     const page = new URLSearchParams(search).get('page') || 1;
-    return Number(page);
+    const sort = new URLSearchParams(search).get('sort') || '-createdAt';
+    return { 
+      page: Number(page),
+      sort: sort
+    }
   }, [search])
 
   const { data, loading, error } = useQuery(
-    `/products?limit=${limit}&page=${page}`
+    `/products?limit=${limit}&page=${page}&sort=${sort}`
   )
 
   useEffect(() => {
@@ -35,10 +40,11 @@ const Home = () => {
   return(
     <main>
       <h2>Renders: {ref.current++}</h2>
+      <Sorting page={page} sort={sort} />
       <Products products={products} />
       { loading && <h2>Loading...</h2> }
       { error && <h2>{error}</h2> }
-      <Pagination totalPages={totalPages} page={page} />
+      <Pagination totalPages={totalPages} page={page} sort={sort} />
     </main>
   )
 }
