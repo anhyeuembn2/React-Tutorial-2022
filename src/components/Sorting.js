@@ -1,7 +1,9 @@
 import React from 'react'
+import { useMyContext } from '../context/store';
 import useCustomRouter from '../hooks/useCustomRouter';
 
-const Sorting = React.memo(({ page, sort }) => {
+const Sorting = React.memo(() => {
+  const { page, sort } = useMyContext()
   const { pushQuery } = useCustomRouter()
 
   const handleSort = (e) => {
