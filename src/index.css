@@ -65,3 +65,16 @@ code {
 
 /* Sorting */
 @import url('./css/sorting.css');
+
+/* Header */
+@import url('./css/header.css');
+
+/* Modal */
+@import url('./css/modal.css');
+
+/* Search Form */
+@import url('./css/search_form.css');
+
+
+/* Filter Form */
+@import url('./css/filter_form.css');
