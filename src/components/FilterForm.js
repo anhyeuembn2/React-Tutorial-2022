@@ -1,6 +1,7 @@
 import React from 'react'
 
 const FilterForm = () => {
+
   return (
     <div className='filter_form' title='Enter to filter'>
       <form>
