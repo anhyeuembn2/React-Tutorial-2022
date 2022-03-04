@@ -1,7 +1,7 @@
-import react, { useMemo, useContext } from "react";
+import React, { useMemo, useContext } from "react";
 import { useLocation  } from "react-router-dom";
 
-export const Store = react.createContext()
+export const Store = React.createContext()
 
 export const useMyContext = () => useContext(Store)
 
@@ -23,9 +23,9 @@ export const ContextProvider = ({children}) => {
   Store.displayName = "DEVAT";
   return (
     <Store.Provider value={value}>
-      <Store.Consumer>
+      {/* <Store.Consumer>
         { value => <h3>Consumer: {value.page}</h3> }
-      </Store.Consumer>
+      </Store.Consumer> */}
       {children}
     </Store.Provider>
   )

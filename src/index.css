@@ -78,3 +78,6 @@ code {
 
 /* Filter Form */
 @import url('./css/filter_form.css');
+
+/* Product Form */
+@import url('./css/product_form.css');
