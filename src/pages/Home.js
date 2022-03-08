@@ -14,7 +14,8 @@ const Home = () => {
   const ref = useRef(0)
 
   const { data, loading, error } = useQuery(
-    `/products?limit=${limit}&page=${page}&sort=${sort}`
+    `/products?limit=${limit}&page=${page}&sort=${sort}`,
+    { saveCache: true }
   )
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const Home = () => {
   const totalPages = useMemo(() => {
     if(!data?.count) return 0;
     return Math.ceil(data.count / limit)
-  }, [data?.count])
+  }, [data?.count, limit])
 
 
   return(

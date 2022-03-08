@@ -5,7 +5,10 @@ import useQuery from '../hooks/useQuery'
 
 const ProductDetail = () => {
   const { id } = useParams()
-  const { data: product, loading, error } = useQuery(`/products/${id}`)
+  const { data: product, loading, error } = useQuery(
+    `/products/${id}`,
+    { saveCache: true }
+  )
 
 
   return (
