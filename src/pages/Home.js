@@ -10,12 +10,12 @@ const Home = () => {
   const [products, setProducts] = useState([])
   const [limit, setLimit] = useState(5)
 
-  const { page, sort } = useMyContext()
+  const { page, sort, refetching } = useMyContext()
   const ref = useRef(0)
 
   const { data, loading, error } = useQuery(
     `/products?limit=${limit}&page=${page}&sort=${sort}`,
-    { saveCache: true }
+    { saveCache: true, refetching }
   )
 
   useEffect(() => {

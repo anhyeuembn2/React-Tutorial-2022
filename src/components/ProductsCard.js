@@ -1,15 +1,19 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { deleteProduct } from '../api/productAPI'
+import useMutation from '../hooks/useMutation'
 import Modal from './Modal'
 import ProductForm from './ProductForm'
 
 const ProductsCard = ({ product }) => {
   const [openProduct, setOpenProduct] = useState(false)
+  const { mutate, loading } = useMutation()
 
   const handleDelete = (id) => {
     if(window.confirm("Do you want to delete this?")){
-      axios.delete(`products/${id}`).then(res => console.log(res))
+      // axios.delete(`products/${id}`).then(res => console.log(res))
+      mutate(() => deleteProduct(id))
     }
   }
 
@@ -33,8 +37,10 @@ const ProductsCard = ({ product }) => {
             Edit
           </button>
 
-          <button className="btn_delete"
-          onClick={() => handleDelete(product._id)}>Delete</button>
+          <button className="btn_delete" disabled={loading}
+          onClick={() => handleDelete(product._id)}>
+            { loading ? 'Loading...' : 'Delete' }
+          </button>
         </div>
       </div>
 

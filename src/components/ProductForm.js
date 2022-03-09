@@ -1,8 +1,10 @@
-import axios from 'axios'
 import React, { useRef } from 'react'
+import { createProduct, updateProduct } from '../api/productAPI'
+import useMutation from '../hooks/useMutation'
 
 const ProductForm = ({ btnTxt, data }) => {
   const multiRef = useRef()
+  const { mutate, loading } = useMutation()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -16,10 +18,15 @@ const ProductForm = ({ btnTxt, data }) => {
     if(data){
       const result = shallowEqual(newData, data)
       if(result) return;
-      axios.put(`products/${data._id}`, newData)
-      .then(res => console.log(res))
+      // axios.put(`products/${data._id}`, newData)
+      // .then(res => console.log(res))
+      // updateProduct({id: data._id, newData})
+      // .then(res => console.log(res))
+      mutate(() => updateProduct({id: data._id, newData}))
     }else{
-      axios.post(`products`, newData).then(res => console.log(res))
+      // axios.post(`products`, newData).then(res => console.log(res))
+      // createProduct(newData).then(res => console.log(res))
+      mutate(() => createProduct(newData))
     }
   }
 
@@ -63,8 +70,8 @@ const ProductForm = ({ btnTxt, data }) => {
         defaultValue={data?.image}
         />
         
-        <button>
-          { btnTxt }
+        <button disabled={loading}>
+          { loading ? 'Loading..' : btnTxt }
         </button>
       </form>
     </div>

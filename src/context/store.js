@@ -1,4 +1,4 @@
-import React, { useMemo, useContext, useRef } from "react";
+import React, { useMemo, useContext, useRef, useState } from "react";
 import { useLocation  } from "react-router-dom";
 
 export const Store = React.createContext()
@@ -8,6 +8,7 @@ export const useMyContext = () => useContext(Store)
 export const ContextProvider = ({children}) => {
   const { search } = useLocation()
   const cache = useRef({})
+  const [refetching, setRefetching] = useState(false)
 
   const { page, sort } = useMemo(() => {
     const page = new URLSearchParams(search).get('page') || 1;
@@ -19,7 +20,7 @@ export const ContextProvider = ({children}) => {
   }, [search])
 
 
-  const value = { page, sort, cache };
+  const value = { page, sort, cache, refetching, setRefetching };
 
   Store.displayName = "DEVAT";
   return (
