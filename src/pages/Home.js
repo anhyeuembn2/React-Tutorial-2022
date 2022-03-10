@@ -31,7 +31,7 @@ const Home = () => {
   return(
     <main>
       <h2>Renders: {ref.current++}</h2>
-      <Sorting />
+      <Sorting page={page} />
       <Products products={products} />
       { loading && <h2>Loading...</h2> }
       { error && <h2>{error}</h2> }

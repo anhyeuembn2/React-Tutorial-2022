@@ -81,3 +81,15 @@ code {
 
 /* Product Form */
 @import url('./css/product_form.css');
+
+
+.btn-load_more{
+  background: white;
+  border: 2px solid green;
+  padding: 10px 20px;
+  margin: 10px auto;
+  font-weight: 600;
+  text-transform: uppercase;
+  display: block;
+  cursor: pointer;
+}
