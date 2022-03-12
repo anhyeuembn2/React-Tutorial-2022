@@ -1,26 +1,30 @@
-import React, { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import useQuery from '../hooks/useQuery'
 import Products from '../components/Products'
 import Sorting from '../components/Sorting'
 import { useMyContext } from '../context/store'
+import useInfinityQuery from '../hooks/useInfinityQuery'
 
 const Search = () => {
   const { value } = useParams()
   const { sort } = useMyContext()
 
   const [products, setProducts] = useState([])
-  const [limit, setLimit] = useState(5)
-  const [page, setPage] = useState(1)
+  const [limit, setLimit] = useState(2)
   const [stop, setStop] = useState(false)
+  const [firstLoad, setFirstLoad] = useState(false)
 
-  const { data, loading, error } = useQuery(
-    `/products?search=${value}&sort=${sort}&limit=${limit}&page=${page}`
-  )
+
+  const { BtnRender, data, loading, error } = useInfinityQuery({
+    url: `/products?search=${value}&sort=${sort}&limit=${limit}`,
+    depens: [value, sort],
+    opt: { stop, firstLoad }
+  })
 
   useEffect(() => {
     if(data?.products) {
       setProducts(prev => [...prev, ...data.products])
+      setFirstLoad(true)
 
       if(data.products.length < limit) setStop(true)
     }
@@ -28,9 +32,11 @@ const Search = () => {
 
   useEffect(() => {
     setProducts([])
-    setPage(1)
     setStop(false)
+    setFirstLoad(false)
   }, [value, sort])
+
+
 
   return (
     <>
@@ -39,12 +45,7 @@ const Search = () => {
       { loading && <h2>Loading...</h2> }
       { error && <h2>{error}</h2> }
 
-      <button className="btn-load_more"
-      onClick={() => setPage(prev => prev + 1)}
-      disabled={stop}
-      >
-        Load more
-      </button>
+      { BtnRender() }
     </>
   )
 }
