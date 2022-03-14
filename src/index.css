@@ -82,6 +82,9 @@ code {
 /* Product Form */
 @import url('./css/product_form.css');
 
+/* Lazy Load Image */
+@import url('./css/lazy_load.img.css');
+
 
 .btn-load_more{
   background: white;

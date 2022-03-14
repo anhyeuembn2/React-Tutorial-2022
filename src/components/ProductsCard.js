@@ -1,14 +1,16 @@
-import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { deleteProduct } from '../api/productAPI'
 import useMutation from '../hooks/useMutation'
+import LazyLoadImg from './LazyLoadImg'
 import Modal from './Modal'
 import ProductForm from './ProductForm'
 
 const ProductsCard = ({ product }) => {
   const [openProduct, setOpenProduct] = useState(false)
   const { mutate, loading } = useMutation()
+
+ 
 
   const handleDelete = (id) => {
     if(window.confirm("Do you want to delete this?")){
@@ -17,10 +19,11 @@ const ProductsCard = ({ product }) => {
     }
   }
 
+  
 
   return (
     <div className='card'>
-      <img src={product.image} alt={product.image} />
+      <LazyLoadImg url={product.image} />
 
       <div className="box">
         <h3>

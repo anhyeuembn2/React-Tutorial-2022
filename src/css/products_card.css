@@ -16,12 +16,7 @@
   cursor: pointer;
 }
 
-.card img{
-  width: 100%;
-  height: 300px;
-  display: block;
-  object-fit: cover;
-}
+
 
 .card .box h3{
   text-transform: uppercase;

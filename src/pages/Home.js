@@ -8,7 +8,7 @@ import useQuery from '../hooks/useQuery'
 
 const Home = () => {
   const [products, setProducts] = useState([])
-  const [limit, setLimit] = useState(5)
+  const [limit, setLimit] = useState(100)
 
   const { page, sort, refetching } = useMyContext()
   const ref = useRef(0)
