@@ -7,7 +7,7 @@ const ProductDetail = () => {
   const { id } = useParams()
   const { data: product, loading, error } = useQuery(
     `/products/${id}`,
-    { saveCache: true }
+    { saveCache: true, refetchInterval: 0 }
   )
 
 

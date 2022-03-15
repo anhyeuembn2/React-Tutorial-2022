@@ -1,30 +1,29 @@
-import React, { useState } from 'react'
+import React, { useReducer } from 'react'
 import { toast } from 'react-toastify'
+import { initialState, reducer } from '../context/reducers/queryReducer'
 import { useMyContext } from '../context/store'
 
 const useMutation = () => {
-  const [data, setData] = useState()
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState()
+  const [query, dispatch] = useReducer(reducer, initialState)
 
   const { setRefetching } = useMyContext()
 
   const mutate = (callback) => {
-    setLoading(true)
+    dispatch({type: 'LOADING'})
+
     callback()
       .then(res => {
-        setData(res.data)
+        dispatch({type: 'SUCCESS', payload: res.data})
         toast.success('Success!')
         setRefetching(prev => !prev)
       })
       .catch(err => {
-        setError(err.response.data.msg)
+        dispatch({type: 'ERROR', payload: err.response.data.msg})
         toast.error(err.response.data.msg)
       })
-      .finally(() => setLoading(false))
   }
 
-  return { mutate, data, loading, error }
+  return { mutate, ...query }
 }
 
 export default useMutation
