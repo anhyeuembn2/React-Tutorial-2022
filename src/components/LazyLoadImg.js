@@ -18,7 +18,7 @@ const LazyLoadImg = ({url}) => {
     return () => {
       if(img) observer.unobserve(img)
     }
-  }, [])
+  }, [url])
 
 
   return (

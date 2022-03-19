@@ -16,8 +16,6 @@
   cursor: pointer;
 }
 
-
-
 .card .box h3{
   text-transform: uppercase;
   overflow: hidden;
@@ -25,11 +23,7 @@
   text-overflow: ellipsis;
   margin-top: 0.3rem;
 }
-.card .box h3 span{
-  inset: 0;
-  position: absolute;
-  bottom: 65px;
-}
+
 .card .box h4{
   color: crimson;
 }

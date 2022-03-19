@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
 import Pagination from '../components/Pagination'
 import Products from '../components/Products'
@@ -11,7 +11,6 @@ const Home = () => {
   const [limit, setLimit] = useState(5)
 
   const { page, sort, refetching } = useMyContext()
-  const ref = useRef(0)
 
   const { data, loading, error } = useQuery(
     `/products?limit=${limit}&page=${page}&sort=${sort}`,
@@ -30,11 +29,10 @@ const Home = () => {
 
   return(
     <main>
-      <h2>Renders: {ref.current++}</h2>
       <Sorting page={page} />
       <Products products={products} />
-      { loading && <h2>Loading...</h2> }
-      { error && <h2>{error}</h2> }
+      { loading && <p style={{textAlign: 'center'}}>Loading...</p> }
+      { error && <p style={{textAlign: 'center'}}>{error}</p> }
       <Pagination totalPages={totalPages} />
     </main>
   )

@@ -10,9 +10,7 @@ export function reducer(state, action){
     case "LOADING":
       return {
         ...state,
-        data: undefined,
-        loading: true,
-        error: undefined
+        loading: true
       }
     case "SUCCESS":
       return {

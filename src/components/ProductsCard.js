@@ -10,20 +10,19 @@ const ProductsCard = ({ product }) => {
   const [openProduct, setOpenProduct] = useState(false)
   const { mutate, loading } = useMutation()
 
- 
 
   const handleDelete = (id) => {
     if(window.confirm("Do you want to delete this?")){
-      // axios.delete(`products/${id}`).then(res => console.log(res))
       mutate(() => deleteProduct(id))
     }
   }
-
   
 
   return (
     <div className='card'>
-      <LazyLoadImg url={product.image} />
+      <Link to={`/products/${product._id}`}>
+        <LazyLoadImg url={product.image} />
+      </Link>
 
       <div className="box">
         <h3>

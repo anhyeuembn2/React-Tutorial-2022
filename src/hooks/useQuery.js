@@ -58,7 +58,7 @@ const useQuery = (url, opt) => {
       here = false
       clearTimeout(delayDebounce)
     }
-  }, [url, cache, clearCache, option.refetching, option.refetchInterval])
+  }, [url, cache, clearCache, option.refetching, option.refetchInterval, option.saveCache])
 
   return { ...query }
 }

@@ -14,8 +14,8 @@ const ProductDetail = () => {
   return (
     <main>
       { product && <ProductInfo product={product} /> }
-      { loading && <h2>Loading...</h2> }
-      { error && <h2>{error}</h2> }
+      { loading && <p style={{textAlign: 'center'}}>Loading...</p> }
+      { error && <p style={{textAlign: 'center'}}>{error}</p> }
     </main>
   )
 }
