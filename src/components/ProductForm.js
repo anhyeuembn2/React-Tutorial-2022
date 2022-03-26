@@ -30,8 +30,8 @@ const ProductForm = ({ btnTxt, data }) => {
       if (obj1[key] !== obj2[key]) {
         return false;
       }
-      return true;
     }
+    return true;
   }
 
 
