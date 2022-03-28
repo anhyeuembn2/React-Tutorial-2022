@@ -19,11 +19,11 @@ const ProductForm = ({ btnTxt, data }) => {
       const newArr = {...newData, price: Number(newData.price)} 
       const result = shallowEqual(newArr, data)
       if(result) return;
-      // axios.put(`products/${data._id}`, newArr)
+      // axios.put(`products/${data._id}`, newData)
       // .then(res => console.log(res))
-      // updateProduct({id: data._id, newArr})
+      // updateProduct({id: data._id, newData})
       // .then(res => console.log(res))
-      mutate(() => updateProduct({id: data._id, newArr}))
+      mutate(() => updateProduct({id: data._id, newData}))
     }else{
       // axios.post(`products`, newData).then(res => console.log(res))
       // createProduct(newData).then(res => console.log(res))
