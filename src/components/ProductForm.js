@@ -14,9 +14,10 @@ const ProductForm = ({ btnTxt, data }) => {
     }, {})
 
     if(data){
-      const result = shallowEqual(newData, data)
+      const newArr = {...newData, price: Number(newData.price)} 
+      const result = shallowEqual(newArr, data)
       if(result) return;
-      axios.put(`products/${data._id}`, newData)
+      axios.put(`products/${data._id}`, newArr)
       .then(res => console.log(res))
     }else{
       axios.post(`products`, newData).then(res => console.log(res))
